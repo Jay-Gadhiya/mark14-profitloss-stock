@@ -1,0 +1,47 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+    width: 50vw;
+    align-items: center;
+}
+
+label {
+    font-size: larger;
+    padding: 0.2rem;
+    margin-top: 0.7rem;
+}
+
+input {
+    font-size: larger;
+    width: 300px;
+    padding: 0.6rem;
+    border-radius: 12px;
+    border: 2px solid rgb(145, 15, 252);
+    
+}
+
+button {
+    font-size: large;
+    margin-top: 1rem;
+    background-color: rgb(145, 15, 252);
+    border-radius: 6px;
+    padding: 0.5rem;
+    color: white;
+    border-style: none;
+}
+
+#show-output {
+    font-size: 25px;
+    margin-top: 1rem;
+}

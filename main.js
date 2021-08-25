@@ -1,35 +1,35 @@
 
-// calculate percentage for profit and loss
-function calculatePercnt(num1, num2) {
-    const percentage = (num1 / num2) * 100;
-    return percentage;
+// call function 
+function calculateProfitAndLoss(initial, current, quantity) {
+    if(initial > current) {
+        var loss = (initial - current) * quantity;
+        var lossPercentage = (loss / initial) * 100;
+        showOutput.innerText = `Hey, the loss is ${loss} and the percent is ${lossPercentage}%`
+        showOutput.style.color = "red";
+    }
+    else if (current > initial) {
+        var profit = (current - initial) * quantity;
+        var profitPercentage = (profit / initial) * 100;
+        showOutput.innerText = `Hey, the profit is ${profit} and the percent is ${profitPercentage}%`;
+        showOutput.style.color = "green";
+    }
+    else {
+        showOutput.innerText = "No pain no gain and no gain no pain";
+    }
 }
 
-
+// function run when button click
 function clickHandler() {
-    const ip = initialPrice.value; //initial price
-    const stockQuantity = stocksQuantity.value;
-    const cp = curruntPrice.value; // currunt price
+    const ip = Number(initialPrice.value); //initial price
+    const stockQ = Number(stocksQuantity.value);
+    const curr = Number(curruntPrice.value); // currunt price
+    if(ip > 0) {
 
-    const totalStock = ip * stockQuantity;
-
-    if (Number(cp) > Number(ip)) {                  // for profit calculation
-        const profitCalculation = cp - ip;
-        const profit = stockQuantity * profitCalculation;
-        const percent = calculatePercnt(profit, Number(ip));
-        showOutput.innerText = `Hey, the profit is ${profit} and the percent is ${percent}%`;
-
+        calculateProfitAndLoss(ip, curr, stockQ);
     }
-
-    if (Number(cp) < Number(ip)) {                // for loss calculation
-        const lossCalculation = ip - cp;
-        const loss = stockQuantity * lossCalculation;
-        const percent = calculatePercnt(loss, Number(ip));
-        showOutput.innerText = `Hey, the loss is ${loss} and the percent is ${percent}%`
-    }
-
-    if (cp === ip) {                            
-        showOutput.innerText = "No pain no gain and no gain no pain";
+    else {
+        showOutput.innerText = "please put your data!";
+        
     }
 }
 
